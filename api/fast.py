@@ -31,7 +31,7 @@ def predict(image):
 
     #X_test=np.stack([X_test]*3, axis=-1) #expansion of dimension -> seems to be already colored
     X_test=tf.keras.applications.vgg16.preprocess_input(X_test, data_format=None)# to preprocess input for vgg16
-    X_test= expand_dims(X_test, axis=1) # to add another dimension needed for input (None, 256, 256, 3)
+    X_test= expand_dims(X_test, axis=0) # to add another dimension needed for input (None, 256, 256, 3)
 
     loaded_model = models.load_model('PATH_TO_LOCAL_MODEL')
 
