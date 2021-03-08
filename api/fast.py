@@ -33,7 +33,7 @@ def predict(image):
     X_test=tf.keras.applications.vgg16.preprocess_input(X_test, data_format=None)# to preprocess input for vgg16
     X_test= expand_dims(X_test, axis=0) # to add another dimension needed for input (None, 256, 256, 3)
 
-    loaded_model = models.load_model('PATH_TO_LOCAL_MODEL')
+    loaded_model = models.load_model('PATH_TO_LOCAL_MODEL')# loading model with tensorflow
 
     pred = loaded_model.predict(X_test, verbose=1)[1] # we have to still decide what metrics to use
 
